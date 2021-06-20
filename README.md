@@ -32,7 +32,7 @@ $ make
 
 After loading the kernel module for vcam, we have to run the command(X: the index of device):
 ```shell
-$ cat triathlon_swim.png > /proc/vcamfbX
+$ cat triathlon.jpg > /proc/vcamfbX
 ```
 And we will get `file_compressed`
 
