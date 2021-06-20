@@ -2,8 +2,8 @@
 
 ## How to integate x-compressor into vcam?
 
-* Understand the `vcam` and the `x-compressor` usage
-* Trace the code of `vcam` and `x-compressor`
+* Understand the usage of `vcam` and `x-compressor`.
+* Trace the code of `vcam` and `x-compressor`.
 
 ## For x-compressor
 
