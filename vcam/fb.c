@@ -93,7 +93,7 @@ static ssize_t vcamfb_write(struct file *file,
     }
 
     /* Reset buffer if last write is too old */
-    if (buf->filled && (((int32_t) jiffies - buf->jiffies) / HZ)) {
+   if (buf->filled && (((int32_t) jiffies - buf->jiffies) / HZ)) {
         pr_debug("Reseting jiffies, difference %d\n",
                  ((int32_t) jiffies - buf->jiffies));
         buf->filled = 0;
@@ -119,7 +119,6 @@ static ssize_t vcamfb_write(struct file *file,
     buf->filled += to_be_copyied;
 
     /*Begin compress file*/
-    //load_layer(0, istream);
     size_t j = 0;
     layer[j].size = buf->filled;
     if (!(layer[j].data = kmalloc(layer[j].size, GFP_KERNEL))) {
@@ -127,31 +126,22 @@ static ssize_t vcamfb_write(struct file *file,
         //abort();
         return 0;
     }
-    /*
-    if (fread(layer[j].data, 1, layer[j].size, stream) < layer[j].size)
-    {
-        pr_err("Error size\n");
-        return;
-    }
-    */
+
     layer[j].data = data;
     pr_info("Input size: %d bytes\n", layer[j].size);
 
-    //if ((layer[1].data = malloc(8 * layer[0].size)) == NULL)
     if ((layer[1].data = kmalloc(8 * layer[0].size, GFP_KERNEL)) == NULL)
     {
         pr_warn("Failed to kmalloc!");
         return -1;
     }
 
-    //fprintf(stderr, "Compressing...\n");
     pr_info("Compressing...\n");
     x_init();
 
     void *end = x_compress(layer[0].data, layer[0].size, layer[1].data);
     layer[1].size = (char *) end - (char *) layer[1].data;
 
-    //save_layer(1, ostream);
     j = 1;
     pr_info("Output size: %d bytes\n", layer[j].size);
     //if (fwrite(layer[j].data, 1, layer[j].size, stream) < layer[j].size)
