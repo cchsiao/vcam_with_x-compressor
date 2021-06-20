@@ -30,9 +30,9 @@ $ make
 
 ## How to use?
 
-After loading the kernel module for vcam, we have to run the command:
+After loading the kernel module for vcam, we have to run the command(X: the index of device):
 ```shell
-$ cat triathlon_swim.png > /proc/vcamfb0
+$ cat triathlon_swim.png > /proc/vcamfbX
 ```
 And we will get `file_compressed`
 
