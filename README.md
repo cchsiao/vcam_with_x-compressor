@@ -40,5 +40,5 @@ And we will get `file_compressed`
 
 After decompressing the `file_compressed` by `unx`, and we will get the decompressed file which is same as triathlon.jpg
 
-## Knoew issue
+## Know issue
 The execution command will be crashed if the file size is large.
