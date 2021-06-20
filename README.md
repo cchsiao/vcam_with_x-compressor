@@ -38,4 +38,4 @@ And we will get `file_compressed`
 
 ## How to test?
 
-After decompressing the `file_compressed` by `unx`, and we will get the decompressed file which is same as triathlon_swim.png
+After decompressing the `file_compressed` by `unx`, and we will get the decompressed file which is same as triathlon.jpg
